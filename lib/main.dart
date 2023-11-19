@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterassignment/address/address_screen.dart';
 
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      supportedLocales: const [Locale('en')],
+      localizationsDelegates: [
+        CountryLocalizations.delegate,
+      ],
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,6 +29,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        // backgroundColor: Color(0XFF5408AD),
+        appBarTheme: AppBarTheme(
+          color: Color(0XFF5408AD),
+        ),
       ),
       home: const HomePage(title: 'Flutter Gigabank assignment'),
     );
@@ -44,7 +53,7 @@ class _HomePageState extends State<HomePage> {
   _navigateToAddAddressScreen() {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => const AddressScreen(title: "Address screen"),
+          builder: (context) => const AddressScreen(title: "Registered Address"),
         ),
       );
   }
@@ -64,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.all(16.0),
                 textStyle: const TextStyle(fontSize: 20),
-                backgroundColor: Colors.blue,
+                backgroundColor: const Color(0XFF5408AD),
                 elevation: 5,
               ),
               onPressed: _navigateToAddAddressScreen,
